@@ -4,20 +4,44 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tomtom/tcomment_vim'
 Plug 'srcery-colors/srcery-vim'
 Plug 'gcmt/taboo.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'morhetz/gruvbox'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
+Plug 'editorconfig/editorconfig-vim'
 
-
+" Plug 'vim-scripts/taglist.vim'
+Plug 'xolox/vim-misc'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'xolox/vim-easytags'
+" Plug 'majutsushi/tagbar'
+Plug 'romainl/flattened'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sleuth'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'tpope/vim-obsession'
+Plug 'dense-analysis/ale'
 call plug#end()
 
+autocmd vimenter * colorscheme gruvbox
 
-
+let g:fzf_layout = { 'left': '40%' }
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " Vanilla nvim settings"
+
+set laststatus=2
 set ignorecase
 set smartcase
 set clipboard=unnamed
 set nu rnu
 set cursorline
+
 
 " Map Colemak keys to QWERTY keys (in alphabetical order).
 noremap d g
@@ -53,7 +77,10 @@ noremap T F
 noremap U I
 noremap Y O
 
+
 nnoremap <esc> :noh<return><esc>
+
+nmap <C-,> :TagbarToggle<CR>
 
 " Keyboard Shortcuts 
 nnoremap <C-i> <C-W><C-L>
