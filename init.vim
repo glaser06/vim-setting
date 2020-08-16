@@ -64,7 +64,7 @@ Plug 'mxw/vim-jsx'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'lornix/vim-scrollbar'
+" Plug 'lornix/vim-scrollbar'
 Plug 'editorconfig/editorconfig-vim'
 
 " Plug 'vim-scripts/taglist.vim'
