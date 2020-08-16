@@ -1,47 +1,4 @@
 
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'tomtom/tcomment_vim'
-Plug 'srcery-colors/srcery-vim'
-Plug 'gcmt/taboo.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'morhetz/gruvbox'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
-Plug 'editorconfig/editorconfig-vim'
-
-" Plug 'vim-scripts/taglist.vim'
-Plug 'xolox/vim-misc'
-Plug 'heavenshell/vim-jsdoc'
-Plug 'xolox/vim-easytags'
-" Plug 'majutsushi/tagbar'
-Plug 'romainl/flattened'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sleuth'
-Plug 'jiangmiao/auto-pairs'
-Plug 'vim-airline/vim-airline'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'tpope/vim-obsession'
-Plug 'dense-analysis/ale'
-call plug#end()
-
-autocmd vimenter * colorscheme gruvbox
-
-let g:fzf_layout = { 'left': '40%' }
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-
-" Vanilla nvim settings"
-
-set laststatus=2
-set ignorecase
-set smartcase
-set clipboard=unnamed
-set nu rnu
-set cursorline
-
 
 " Map Colemak keys to QWERTY keys (in alphabetical order).
 noremap d g
@@ -96,3 +53,81 @@ nnoremap <S-e> 1G
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-n> <Down>
 tnoremap <C-e> <Up>
+hi TabLineSel ctermfg=Black ctermbg=White
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'tomtom/tcomment_vim'
+Plug 'srcery-colors/srcery-vim'
+Plug 'gcmt/taboo.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'morhetz/gruvbox'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'lornix/vim-scrollbar'
+Plug 'editorconfig/editorconfig-vim'
+
+" Plug 'vim-scripts/taglist.vim'
+Plug 'xolox/vim-misc'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'xolox/vim-easytags'
+" Plug 'majutsushi/tagbar'
+Plug 'romainl/flattened'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sleuth'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'tpope/vim-obsession'
+Plug 'dense-analysis/ale'
+Plug 'neovim/nvim-lsp'
+Plug 'TaDaa/vimade'
+call plug#end()
+
+autocmd vimenter * colorscheme gruvbox
+
+let g:fzf_layout = { 'left': '40%' }
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+if $VIRTUAL_ENV == ""
+
+	let g:PYTHON_PATH = "usr/bin/python3"
+else
+	let g:PYTHON_PATH = $VIRTUAL_ENV . '/bin/python3'
+endif
+lua<<
+require'nvim_lsp'.pyls_ms.setup{
+init_options = {
+interpreter= {
+properties= {
+InterpreterPath= vim.g.PYTHON_PATH, 
+Version= "3.8"
+}
+}
+}
+}
+.
+
+lua<<
+require'nvim_lsp'.pyls_ms.setup{}
+.
+
+let g:ale_fixers = {
+ \ 'javascript': ['eslint']
+ \ }
+
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+" Vanilla nvim settings"
+
+set laststatus=2
+set ignorecase
+set smartcase
+set clipboard=unnamed
+set nu rnu
+set cursorline
+
+
+" call SetupScrollbarBindings()
