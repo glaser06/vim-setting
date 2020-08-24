@@ -58,7 +58,8 @@ brew cask install teensy
 brew cask install notion
 brew cask install istat-menus
 brew cask install keyboard-maestro
-
+brew cask install alacritty
+brew cask install vivaldi
 
 ## Install chrome extensions 
 # sudo sh install_chrome_extensions.sh
