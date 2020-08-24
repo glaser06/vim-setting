@@ -51,15 +51,17 @@ brew cask install visual-studio-code
 
 brew cask install slack 
 
-
+brew install --HEAD neovim
 
 ## Extras
 brew cask install teensy 
 brew cask install notion
-brew cask install istat-menus
+# brew cask install istat-menus
 brew cask install keyboard-maestro
 brew cask install alacritty
 brew cask install vivaldi
 
+# a better resource monitor 
+pip3 install bpytop --upgrade
 ## Install chrome extensions 
 # sudo sh install_chrome_extensions.sh
