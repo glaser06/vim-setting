@@ -128,6 +128,6 @@ set smartcase
 set clipboard=unnamed
 set nu rnu
 set cursorline
-
+set timeoutlen=1000 ttimeoutlen=0
 
 " call SetupScrollbarBindings()
