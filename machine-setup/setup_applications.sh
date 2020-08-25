@@ -63,5 +63,7 @@ brew cask install vivaldi
 
 # a better resource monitor 
 pip3 install bpytop --upgrade
+brew cask install signal
+
 ## Install chrome extensions 
 # sudo sh install_chrome_extensions.sh
