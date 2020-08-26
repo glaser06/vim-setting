@@ -64,7 +64,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'srcery-colors/srcery-vim'
 Plug 'gcmt/taboo.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -116,11 +116,8 @@ Version= "3.8"
 lua<<
 require'nvim_lsp'.pyls_ms.setup{}
 .
-
-let g:ale_fixers = {
- \ 'javascript': ['eslint']
- \ }
-
+let g:ale_fixers = {}
+let g:ale_fixers.javascript = ['eslint']
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
@@ -132,6 +129,7 @@ set smartcase
 set clipboard=unnamed
 set nu rnu
 set cursorline
-set timeoutlen=1000 ttimeoutlen=0
+set timeoutlen=100 ttimeoutlen=0
+set scrolloff=10
 
 " call SetupScrollbarBindings()
