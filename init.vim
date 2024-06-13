@@ -15,14 +15,14 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'lornix/vim-scrollbar'
+
 Plug 'editorconfig/editorconfig-vim'
 Plug 'alvan/vim-closetag'
-" Plug 'vim-scripts/taglist.vim'
+
 Plug 'xolox/vim-misc'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'xolox/vim-easytags'
-" Plug 'majutsushi/tagbar'
+
 Plug 'romainl/flattened'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -33,7 +33,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'tpope/vim-obsession'
 Plug 'dense-analysis/ale'
-Plug 'neovim/nvim-lsp'
 Plug 'TaDaa/vimade'
 Plug 'preservim/nerdtree'
 call plug#end()
@@ -49,22 +48,8 @@ if $VIRTUAL_ENV == ""
 else
 	let g:PYTHON_PATH = $VIRTUAL_ENV . '/bin/python3'
 endif
-lua<<
-require'nvim_lsp'.pyls_ms.setup{
-init_options = {
-interpreter= {
-properties= {
-InterpreterPath= vim.g.PYTHON_PATH, 
-Version= "3.8"
-}
-}
-}
-}
-.
 
-lua<<
-require'nvim_lsp'.pyls_ms.setup{}
-.
+
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['eslint']
 let g:ale_fix_on_save = 1
@@ -92,17 +77,17 @@ noremap n j
 noremap e k
 noremap i l
 noremap j e
-noremap l u
+noremap l i
 noremap k n
-noremap u i
+noremap u u
 
 noremap N J
 noremap E K
 noremap I L
 noremap J E
-noremap L U
+noremap L I
 noremap K N
-noremap U I
+noremap U U
 
 nnoremap <esc> :noh<return><esc>
 
